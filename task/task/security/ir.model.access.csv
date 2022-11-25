@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+task.access_task_one,access_task_one,task.model_task_one,base.group_user,1,1,1,1

@@ -1,0 +1,123 @@
+<odoo>
+    <!-- Basic Snippet -->
+    <template id="basic_snippet" name="Basic Snippets">
+        <section class="s_references bg-gray-lighter margin_snippet">
+            <div class="container option_snippet">
+                <h3>
+                    <center>
+                        <b>Menu !!</b>
+                    </center>
+                </h3>
+                <div class="row">
+                    <div class="alert alert-success">
+                        <img src="custom_website_snippets/static/src/img/snippets/background.jpg" class="img img-responsive"
+                             alt="Demo Logo 2"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="alert alert-danger">
+                        <img src="custom_website_snippets/static/src/img/snippets/img_avatar.png"
+                             class="img img-responsive" alt="Demo"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- Dynamic Snippet -->
+    <template id="dynamic_snippet" name="Dynamic Snippet">
+        <section class="container dynamic_snippet_blog">
+            <div class="row">
+                <section class="container option_webinar">
+                    <form role="form" action="/college/webstudent"
+                          method="POST" class="field_edit">
+                        <input type="hidden" name="csrf_token"
+                               t-att-value="request.csrf_token()"/>
+                        <div class="form-group">
+                            <label for="name" class="control-label">Your
+                                Name
+                            </label>
+                            <br/>
+                            <input type="text" name="name"
+                                   t-att-value="name" id="name"
+                                   placeholder="Enter Name"
+                                   required="required"/>
+                            <section class="option_snippet">
+                                <label for="mobile"
+                                       class="control-label">Mobile
+                                    Number
+                                </label>
+                                <br/>
+                                <input type="text" name="mobile"
+                                       t-att-value="mobile"
+                                       id="mobile"
+                                       required="required"
+                                       placeholder="Enter Mobile Number"/>
+                            </section>
+                            <div>
+                                <label for="email"
+                                       class="control-label">
+                                    Email
+                                </label>
+                                <br/>
+                                <input type="text" name="email"
+                                       t-att-value="email" id="email"
+                                       required="required"
+                                       placeholder="Enter Email"/>
+                            </div>
+                        </div>
+                        <section class="option_snippet">
+                            <button type="submit" class="btn-primary">
+                                Submit
+                            </button>
+                        </section>
+                    </form>
+                </section>
+            </div>
+        </section>
+    </template>
+
+    <template id="student_thankyou_page" name="Thank You">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure">
+                    <div class="container">
+                        <center>
+                            <h2>
+                                <b>
+                                    Thank You For Creating Contact
+                                </b>
+                            </h2>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <!-- Snippet Option -->
+    <template id="snippet_option" inherit_id="website.snippet_options">
+        <xpath expr="." position="inside">
+            <div data-selector="div.option_snippet">
+                <we-row string="Padding">
+                    <we-input t-att-data-apply-to="apply_to"
+                              data-css-property="padding"
+                              data-unit="px" data-selector-style="0"/>
+                </we-row>
+            </div>
+        </xpath>
+    </template>
+
+    <template id="snippet_option" inherit_id="website.snippet_options">
+        <xpath expr="." position="inside">
+            <div data-selector="section.margin_snippet">
+                <we-row string="Margin Top">
+                    <we-input t-att-data-apply-to="apply_to"
+                              data-css-property="margin-top"
+                              data-unit="px" data-selector-style="0"/>
+                </we-row>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

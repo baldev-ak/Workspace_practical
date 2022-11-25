@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="snippets_templates" name="Basic Snippets">
+        <section class="s_references bg-gray-lighter margin_snippet">
+            <div>Hellooo
+            </div>
+        </section>
+    </template>
+    <template id="dynamic_snippets_templates" name="Basic Snippets">
+        <!--  <section class="container dynamic_snippet_blog"><div class="row">-->
+        <section class="container option_webinar">
+            <form action="/create_user" class="field_edit" enctype="multipart/form-data" method="POST" role="form">
+                <input name="csrf_token" t-att-value="request.csrf_token()" type="hidden"/>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input class="form-control" id="name" name="name" placeholder="Enter Name" required="required"
+                           type="text"/>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input aria-describedby="emailHelp" class="form-control" id="exampleInputEmail1" name="email"
+                           placeholder="Enter email" required="required" type="email"/>
+                </div>
+                <div class="form-group">
+                    <label for="website">Website</label>
+                    <input class="form-control" id="website" name="website" placeholder="Enter Website" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input class="form-control" id="phone" name="phone" placeholder="Enter Phone Number"
+                           required="required" type="phone"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="customFile">Upload</label>
+                    <input class="form-control" id="customFile" name="image_1920" type="file"/>
+                </div>
+                <section class="option_snippet">
+                    <button class="btn-primary" type="submit">Submit
+                    </button>
+                </section>
+            </form>
+        </section>
+        <!--   </div></section>-->
+    </template>
+    <template id="snippet_option" inherit_id="website.snippet_options">
+        <xpath expr="." position="inside">
+            <div data-selector="section.margin_snippet">
+                <we-row string="Margin Top">
+                    <we-input data-css-property="margin-top" data-selector-style="0" data-unit="px"
+                              t-att-data-apply-to="apply_to"/>
+                </we-row>
+            </div>
+        </xpath>
+    </template>
+</odoo>

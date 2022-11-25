@@ -1,0 +1,31 @@
+<odoo>
+	<record id="view_task_one_tree" model="ir.ui.view">
+            <field name="name">task.one.tree</field>
+            <field name="model">task.one</field>
+            <field name="arch" type="xml">
+                <tree string="Task One">
+                    <!-- <field name="name"/> -->
+                    <field name="state"/>
+                    <field name="customer_id"/>
+                    <field name="product_ids" widget="many2many_tags"/>
+                </tree>
+            </field>
+        </record>
+
+    <record id="view_task_one_form" model="ir.ui.view">
+            <field name="name">task.one.form</field>
+            <field name="model">task.one</field>
+            <field name="arch" type="xml">
+                <form>
+                	<sheet>
+                		<group>
+		                    <!-- <field name="name"/> -->
+		                    <field name="state"/>
+                            <field name="customer_id"/>
+		                    <field name="product_ids" widget="many2many_tags"/>
+		                </group>
+	                </sheet>
+                </form>
+            </field>
+        </record>
+</odoo>

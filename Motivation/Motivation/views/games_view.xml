@@ -1,0 +1,72 @@
+<odoo>
+    <!-- =======================Action=========================== -->
+    <record id="action_games" model="ir.actions.act_window">
+        <field name="name">Games</field>
+        <field name="res_model">game.game</field>
+        <field name="view_mode">tree,form</field>
+        <field name="target">current</field>
+    </record>
+    <record id="tree_games_view" model="ir.ui.view">
+        <field name="name">game.game.tree</field>
+        <field name="model">game.game</field>
+        <field name="arch" type="xml">
+            <tree string="Games">
+                <field name="game_ref_no"/>
+                <field name="name"/>
+                <field name="status"/>
+                <field name="launch_date"/>
+            </tree>
+        </field>
+    </record>
+    <record id="search_games_view" model="ir.ui.view">
+        <field name="name">game.game.search</field>
+        <field name="model">game.game</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="game_ref_no"/>
+                <field name="name"/>
+                <field name="status"/>
+                <field name="launch_date"/>
+                <filter domain="[('status','=','online')]" name="filter_status" string="status"/>
+                <group expand="0" string="Group By">
+                    <filter context="{'group_by':'status'}" domain="[]" name="group_status" string="Status"/>
+                </group>
+            </search>
+        </field>
+    </record>
+    <record id="form_games_view" model="ir.ui.view">
+        <field name="name">game.game.form</field>
+        <field name="model">game.game</field>
+        <field name="arch" type="xml">
+            <form string="Games">
+                <sheet>
+                    <group>
+                        <field name="game_ref_no"/>
+                        <field name="name"/>
+                        <field name="status"/>
+                        <field name="launch_date"/>
+                        <field name="employee_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- ============= Menu============ -->
+    <menuitem action="action_games" id="menu_games_main" name="Games" sequence="0"/>
+    <!-- ============ Sales Menu Inherit ============ -->
+    <!-- <menuitem action="action_games" id="menu_sales_inherit_custom" name="Games" parent="sale.sale_menu_root"/>-->
+    <!-- <menuitem id="menu_games"
+            name="Games"
+            parent="menu_games_main"
+            action="action_games"
+            sequence="0"/>-->
+    <!-- =========== server action ============== -->
+    <record id="server_action_sales" model="ir.actions.server">
+            <field name="name">Product</field>
+            <field name="model_id" ref="Motivation.model_sale_order"/>
+            <field name="binding_model_id" ref="Motivation.model_sale_order"/>
+            <field name="binding_view_types">form</field>
+            <field name="state">code</field>
+            <field name="code">action = records.action_products_display()</field>
+        </record>
+</odoo>

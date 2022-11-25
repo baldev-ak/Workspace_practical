@@ -1,0 +1,14 @@
+<odoo>
+	<template id="snippets" inherit_id="website.snippets" name="Basic Snippets">
+		<xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]" position="inside">
+			<t t-snippet="snippets.snippets_templates"/>
+		</xpath>
+	</template>
+	<template id="dynamic_snippets" inherit_id="website.snippets">
+		<xpath expr="//div[@id='snippet_effect']//t[@t-snippet][last()]" position="after">
+			<t t-snippet="snippets.dynamic_snippets_templates">
+				<keywords>Odoo, Python</keywords>
+			</t>
+		</xpath>
+	</template>
+</odoo>

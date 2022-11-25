@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<template id="goals_templates" name="Goals">
+        <t t-call="website.layout">
+            <section class="section_main">
+                <nav class="menu">
+                    <img src="/webpage/static/src/img/logo.png" class="logo"/>
+                    <span class="first">Features</span>
+                    <span>Collaboration</span>
+                    <span>Resource</span>
+                    <span>Pricing</span>
+                    <span>About</span>
+                    <button type="button" id="btn" class="btn btn-primary">Login</button>
+                </nav>
+                <div class="row">
+                    <div class="col-6" id="main_content">
+                        <p class="small_content">Communicate to acheive a target</p>
+                        <p class="bold">The most effective technique to manage your team</p>
+                        <p class="small">Approach to communication and project  management that prioritizes collaboration, creative thinking, and equitable involvement in order to <br> acheive a goal</br></p>
+                        <button type="button" id="btn_one" class="btn btn-primary">Try Collaboration</button>
+                        <button type="button" id="btn_two" class="btn btn-primary"><i class="fa fa-play-circle"></i> Look at our works</button>
+                        <p class="small_lower">Have collaborated with various clients</p>
+                        <img src="/webpage/static/src/img/collab.png" class="collab"/>
+                    </div>
+                    <div class="col-6">
+                        <img src="/webpage/static/src/img/main_banner.png" class="main_banner"
+                        />
+                    </div>
+                </div>
+            </section>
+        </t>
+    </template>
+</odoo>

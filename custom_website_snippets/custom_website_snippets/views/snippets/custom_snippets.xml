@@ -1,0 +1,23 @@
+<odoo>
+
+    <!-- Basic Snippet -->
+    <template id="test_snippets" inherit_id="website.snippets"
+              name="Basic Snippet">
+        <xpath expr="//div[@id='snippet_structure']/div[hasclass('o_panel_body')]"
+               position="inside">
+            <t t-snippet="custom_website_snippets.basic_snippet"/>
+        </xpath>
+    </template>
+
+    <!-- Dynamic Snippet -->
+    <template id="external_snippets" inherit_id="website.snippets"
+              priority="8">
+        <xpath expr="//div[@id='snippet_effect']//t[@t-snippet][last()]"
+               position="after">
+            <t t-snippet="custom_website_snippets.dynamic_snippet">
+                <keywords>Register, Contact</keywords>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

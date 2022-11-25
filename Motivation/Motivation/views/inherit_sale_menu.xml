@@ -1,0 +1,18 @@
+<odoo>
+    <menuitem action="action_games" id="menu_sales_inherit" name="Games" parent="sale.menu_sales_config" sequence="0"/>
+    <record id="view_sales_inherit" model="ir.ui.view">
+        <field name="name">sale.order.form</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//button[@name='preview_sale_order']" position="after">
+                <button class="oe_stat_button" icon="fa-globe icon" name="btn_order_lines" type="object">
+                    <field name="order_lines" string="Lines" widget="statinfo"/>
+                </button>
+            </xpath>
+           <!--  <xpath expr="//header/field[@name='state']" position="attributes">
+                <attribute name="statusbar_visible">draft,awaiting_approval,sent,sale</attribute>
+            </xpath> -->
+        </field>
+    </record>
+</odoo>

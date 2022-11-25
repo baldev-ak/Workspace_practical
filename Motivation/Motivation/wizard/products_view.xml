@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="product_wizard_view" model="ir.ui.view">
+        <field name="name">product.wizard.view</field>
+        <field name="model">products.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="product_ids">
+                            <tree editable="top">
+                                <field name="product_id"/>
+                                <field name="select_product"/>
+                                <field name="split_id"/>
+                            </tree>
+                            <form>
+                                <sheet>
+                                    <group>
+                                        <field name="product_id"/>
+                                        <field name="select_product"/>
+                                        <field name="split_id"/>
+                                    </group>
+                                </sheet>
+                            </form>
+                        </field>
+                    </group>
+                    <footer>
+                        <button class="oe_highlight" data-hotkey="q" name="action_submit_split" string="Confirm" type="object"/>
+                        <button class="btn btn-default" data-hotkey="z" special="cancel" string="Cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

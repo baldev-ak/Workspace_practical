@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+Motivation.access_game_game,access_game_game,Motivation.model_game_game,base.group_user,1,1,1,1
+Motivation.access_products_wizard,access_products_wizard,Motivation.model_products_wizard,base.group_user,1,1,1,1
+Motivation.access_products_split_wizard,access_products_split_wizard,Motivation.model_products_split_wizard,base.group_user,1,1,1,1
+

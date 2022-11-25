@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="games_template_custom" name="Games">
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">Quotations</t>
+            </t>
+            <t t-if="not games">
+                <p>There are currently no quotations for your account.</p>
+            </t>
+            <t t-if="games" t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th>Games Reference#</th>
+                        <th class="text-right">Name</th>
+                        <th class="text-right">Launch Date</th>
+                        <th class="text-center"/>
+                        <th class="text-right">Employee Name</th>
+                    </tr>
+                </thead>
+                <t t-foreach="games" t-as="game">
+                    <tr>
+                        <!--                        <a t-att-href="game.get_portal_url()">-->
+                        <td>
+                            <a t-attf-href="/my/games/#{game.id}" target="_blank">
+                                <t t-esc="game.game_ref_no"/>
+                            </a>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="game.name"/>
+                        </td>
+                        <td class="text-right">
+                            <span t-field="game.launch_date"/>
+                        </td>
+                        <td class="text-center">
+                            <!--                            <span t-if="game.state == 'cancel'" class="badge badge-pill badge-secondary"><i class="fa fa-fw fa-remove"/> Cancelled</span>-->
+                            <!--                            <span t-if="game.is_expired" class="badge badge-pill badge-secondary"><i class="fa fa-fw fa-clock-o"/> Expired</span>-->
+                        </td>
+                        <td class="text-right">
+                            <span t-field="game.employee_id"/>
+                        </td>
+                    </tr>
+                </t>
+            </t>
+        </t>
+    </template>
+    <template id="games_template_custom_views" name="Games">
+        <script>
+            function myFunction() {
+            document.getElementById("demo").innerHTML = "Hello World";
+            }
+        </script>
+        <t t-call="portal.portal_layout">
+            <t t-set="breadcrumbs_searchbar" t-value="True"/>
+
+            <t t-call="portal.portal_searchbar">
+                <t t-set="title">games</t>
+            </t>
+            <t t-if="not games">
+                <p>There are currently no quotations for your account.</p>
+            </t>
+            <div class="oe_structure">
+                <center>
+                    <h1>Game Details</h1>
+                </center>
+                <div class="row mt-3">
+                    <div class="col-6">
+                        <strong>#Ref :</strong>
+                        <br></br>
+                        <strong>Name :</strong>
+                        <br></br>
+                        <strong>Launch Date :</strong>
+                        <br></br>
+                    </div>
+                    <div class="col-6">
+                        <t t-as="game" t-foreach="games">
+                            <t t-esc="game.game_ref_no"/>
+                            <br></br>
+                            <t t-esc="game.name"/>
+                            <br></br>
+                            <t t-esc="game.launch_date"/>
+                            <br></br>
+
+                            <p id="demo">
+                                <t t-esc="game.status"/>
+                            </p>
+                        </t>
+                    </div>
+                    <!--t-att-href="sale_order.get_portal_url(report_type='pdf', download=True)"-->
+                    <div class="btn-group flex-grow-5 mt-3 mr-1 mb-1">
+                        <button class="btn btn-secondary btn-block" onclick="myFunction()">
+                            <i class="fa fa-download"/>
+                            Check Price
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+    <template id="portal_my_home_game" name="Show Games" inherit_id="portal.portal_my_home">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Games</t>
+                <t t-set="url" t-value="'/my/games'"/>
+                <t t-set="placeholder_count" t-value="'games_count'"/>
+            </t>
+        </xpath>
+    </template>
+</odoo>

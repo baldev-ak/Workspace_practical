@@ -1,0 +1,13 @@
+<odoo>
+	<!-- Menu action -->
+	<record id="action_task" model="ir.actions.act_window">
+            <field name="name">Task One</field>
+            <field name="res_model">task.one</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+	<menuitem name="Task 1"
+        id="menu_task_main"
+        action="action_task"
+        sequence="0"/>
+</odoo>

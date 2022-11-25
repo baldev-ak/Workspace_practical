@@ -1,0 +1,24 @@
+<!--Motivation.access_user,Motivation.access_user,Motivation.model_game_game,Motivation.overtime_user_access,1,0,0,0-->
+<!--Motivation.access_manager,Motivation.access_manager,Motivation.model_game_game,Motivation.overtime_manager_access,1,1,1,1-->
+<!--<odoo>-->
+<!--    <record id="module_motivation" model="ir.module.category">-->
+<!--        <field name="name">Overtime</field>-->
+<!--        <field name="description">User access levels for Overtime module</field>-->
+<!--        <field name="sequence">10</field>-->
+<!--    </record>-->
+<!--    <record id="overtime_user_access" model="res.groups">-->
+<!--        <field name="name">User</field>-->
+<!--        <field name="category_id" ref="Motivation.module_motivation"/>-->
+<!--    </record>-->
+<!--    <record id="overtime_manager_access" model="res.groups">-->
+<!--        <field name="name">Manager</field>-->
+<!--        <field name="category_id" ref="Motivation.module_motivation"/>-->
+<!--        <field eval="[(4, ref('overtime_user_access'))]" name="implied_ids"/>-->
+<!--    </record>-->
+<!--    <record id="security_user_and_manager" model="ir.rule">-->
+<!--        <field name="name">User / Manager</field>-->
+<!--        <field name="model_id" ref="model_game_game"/>-->
+<!--        <field name="domain_force">[('employee_id','=',20)]</field>-->
+<!--        <field eval="[(4, ref('Motivation.overtime_user_access'))]" name="groups"/>-->
+<!--    </record>-->
+<!--</odoo>-->

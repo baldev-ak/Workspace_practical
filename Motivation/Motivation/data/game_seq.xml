@@ -1,0 +1,11 @@
+<odoo>
+	<data>
+	   <record id="game_ref_seq" model="ir.sequence">
+	       <field name="name">Game Reference</field>
+	       <field name="code">game.game</field>
+	       <field name="prefix">G</field>
+	       <field name="padding">5</field>
+	       <field name="company_id" eval="False"/>
+	   </record>
+	</data>
+</odoo>
